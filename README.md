@@ -17,8 +17,6 @@ In this workshop we are going to focus on these main use cases:
 - **Compliance**, providing proof of security compliance.
 - **Security alerts**, configuring alerts to notify security and operations teams of any security incidents or anomalous behaviors.
 - **Dynamic packet capture**, capturing full packet payload on demand for further forensic analysis.
-- **Honeypods**, Deploying HoneyPot techniques to detect bad actors. 
-
 
 ## Join the Slack Channel
 
@@ -54,7 +52,6 @@ In this workshop we are going to focus on these main use cases:
 - [Module 11: Using alerts](modules/using-alerts.md)
 - [Module 12: Dynamic packet capture](modules/dynamic-packet-capture.md)
 - [Module 13: Anomaly Detection](modules/anomaly-detection.md)
-- [Module 14: Honeypod Threat Detection](modules/honeypod-threat-detection.md)
 
 ## Cleanup
 
@@ -73,8 +70,6 @@ In this workshop we are going to focus on these main use cases:
 
 3. Delete EC2 Key Pair.
 
-    >If you created EC2 KeyPair for the EKS cluster, you can remove it if no longer needed.
-
     ```bash
     export KEYPAIR_NAME='<set_keypair_name>'
     aws ec2 delete-key-pair --key-name $KEYPAIR_NAME
@@ -82,13 +77,12 @@ In this workshop we are going to focus on these main use cases:
 
 4. Delete Cloud9 instance.
 
-    Navigate to `AWS Console` > `Services` > `Cloud9` and remove your workspace environment, e.g. `tigera-workspace`.
+    Navigate to `AWS Console` > `Services` > `Cloud9` and remove your workspace environment, e.g. `tigera-workshop`.
 
 5. Delete IAM role created for this workshop.
 
     ```bash
-    # use your local shell to set AWS credentials if needed
-    # otherwise skip these two lines and execute commands below
+    # use your local shell to set AWS credentials
     export AWS_ACCESS_KEY_ID="<your_accesskey_id>"
     export AWS_SECRET_ACCESS_KEY="<your_secretkey>"
 
@@ -96,7 +90,6 @@ In this workshop we are going to focus on these main use cases:
     IAM_ROLE='tigera-workshop-admin'
     ADMIN_POLICY_ARN=$(aws iam list-policies --query 'Policies[?PolicyName==`AdministratorAccess`].Arn' --output text)
     aws iam detach-role-policy --role-name $IAM_ROLE --policy-arn $ADMIN_POLICY_ARN
-    aws iam remove-role-from-instance-profile --instance-profile-name $IAM_ROLE --role-name $IAM_ROLE
     # if this command fails, you can remove the role via AWS Console once you delete the Cloud9 instance
     aws iam delete-instance-profile --instance-profile-name $IAM_ROLE
     aws iam delete-role --role-name $IAM_ROLE
