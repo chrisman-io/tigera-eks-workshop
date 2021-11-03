@@ -1,0 +1,11 @@
+apiVersion: projectcalico.org/v3
+kind: PacketCapture
+metadata:
+  name: capture-frontend
+  namespace: default
+spec:
+  selector: app == "frontend"
+  filters:
+    - protocol: TCP
+      ports:
+        - "8080"
