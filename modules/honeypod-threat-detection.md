@@ -3,7 +3,7 @@
 **Goal:** Deploy honeypod resources and generate alerts when suspicous traffic is detected
 ---
 
-Calico offers [Honeypod](https://docs.tigera.io/v3.9/threat/honeypod/) capability which is based upon the same principles as traditional honeypots. Calico is able to detect traffic which probes the Honeypod resources which can be an indicator of compromise. Refer to the [official honeypod configuration documentation](https://docs.tigera.io/v3.9/threat/honeypod/honeypods) for more details.
+Calico offers [Honeypod](https://docs.tigera.io/v3.10/threat/honeypod/honeypods) capability which is based upon the same principles as traditional honeypots. Calico is able to detect traffic which probes the Honeypod resources which can be an indicator of compromise. Refer to the [official honeypod configuration documentation](https://docs.tigera.io/v3.10/threat/honeypod/honeypods) for more details.
 <br>
 
 Note: in order to deploy honeypod resources a pull secret is required to download images from Tigera's respository. This will be supplied to you as part of this workshop 
@@ -14,7 +14,7 @@ Note: in order to deploy honeypod resources a pull secret is required to downloa
 
     ```bash
     # create dedicated namespace and RBAC for honeypods
-    kubectl apply -f https://docs.tigera.io/v3.9/manifests/threatdef/honeypod/common.yaml 
+    kubectl apply -f https://docs.tigera.io/v3.10/manifests/threatdef/honeypod/common.yaml 
     
     # add tigera pull secret to the namespace. We clone the existing secret from the calico-system NameSpace
     kubectl get secret tigera-pull-secret --namespace=calico-system -o yaml | \
@@ -26,13 +26,13 @@ Note: in order to deploy honeypod resources a pull secret is required to downloa
 
     ```bash
     # expose pod IP to test IP enumeration use case
-    kubectl apply -f https://docs.tigera.io/v3.9/manifests/threatdef/honeypod/ip-enum.yaml 
+    kubectl apply -f https://docs.tigera.io/v3.10/manifests/threatdef/honeypod/ip-enum.yaml 
 
     # expose nginx service that can be reached via ClusterIP or DNS
-    kubectl apply -f https://docs.tigera.io/v3.9/manifests/threatdef/honeypod/expose-svc.yaml 
+    kubectl apply -f https://docs.tigera.io/v3.10/manifests/threatdef/honeypod/expose-svc.yaml 
 
     # expose MySQL service
-    kubectl apply -f https://docs.tigera.io/v3.9/manifests/threatdef/honeypod/vuln-svc.yaml
+    kubectl apply -f https://docs.tigera.io/v3.10/manifests/threatdef/honeypod/vuln-svc.yaml 
     ```
 3. Verify newly deployed pods are running
 

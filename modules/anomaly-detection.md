@@ -3,14 +3,14 @@
 **Goal:** Configure Anomaly Detection to alert upon abnormal/suspicious traffic
 ---
 
-Calico offers [Anomaly Detection](https://docs.tigera.io/v3.9/threat/anomaly-detection/overview) (AD) as a part of its [threat defense](https://docs.tigera.io/threat/) capabilities. Calico's Machine Learning software is able to baseline "normal" traffic patterns and subsequently detect abnormal or suspicious behaviour. This may resemble an Indicator of Compromise and will generate an Alert in the UI.
+Calico offers [Anomaly Detection](https://docs.tigera.io/v3.10/threat/anomaly-detection/overview) (AD) as a part of its [threat defense](https://docs.tigera.io/threat/) capabilities. Calico's Machine Learning software is able to baseline "normal" traffic patterns and subsequently detect abnormal or suspicious behaviour. This may resemble an Indicator of Compromise and will generate an Alert in the UI.
 Use official documentation for the most recent [configuration instructions](https://docs.tigera.io/threat/anomaly-detection/customizing).
 
 ## Steps
 
 1. Review and apply the Anomaly Detection jobs for the managed cluster.
 
-Instructions below for a Managed cluster only. Follow [configuration documentation](hhttps://docs.tigera.io/v3.9/threat/anomaly-detection/customizing) to configure AD jobs for management and standalone clusters.
+Instructions below for a Managed cluster only. Follow [configuration documentation](hhttps://docs.tigera.io/v3.10/threat/anomaly-detection/customizing) to configure AD jobs for management and standalone clusters.
 
 ```bash
 less ./demo/70-anomaly-detection/ad-jobs-deployment-managed.yaml

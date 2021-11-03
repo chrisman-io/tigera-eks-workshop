@@ -3,7 +3,7 @@
 **Goal:** Enable Layer 7 visibility for Pod traffic.
 ---
 
-Calico Cloud can be enabled for Layer 7 application visibility which captures the HTTP calls applications are making. Application visibility does not require a service mesh but does utilise envoy for capturing logs. Envoy is deployed as part of an L7 Log Collector DaemonSet per Kubernetes node - this requires less resources than a sidecar per pod. For more info please review the [documentation](https://docs.tigera.io/v3.9/visibility/elastic/l7/configure).
+Calico Cloud can be enabled for Layer 7 application visibility which captures the HTTP calls applications are making. Application visibility does not require a service mesh but does utilise envoy for capturing logs. Envoy is deployed as part of an L7 Log Collector DaemonSet per Kubernetes node - this requires less resources than a sidecar per pod. For more info please review the [documentation](https://docs.tigera.io/v3.10/visibility/elastic/l7/configure).
 
 ## Steps
 
@@ -13,10 +13,10 @@ Calico Cloud can be enabled for Layer 7 application visibility which captures th
     DOCS_LOCATION=${DOCS_LOCATION:="https://docs.tigera.io"}
 
     #Download manifest file for L7 log collector daemonset
-    curl ${DOCS_LOCATION}/v3.9/manifests/l7/daemonset/l7-collector-daemonset.yaml -O
+    curl ${DOCS_LOCATION}/v3.10/manifests/l7/daemonset/l7-collector-daemonset.yaml -O
 
     #Download and install Envoy Config
-    curl ${DOCS_LOCATION}/v3.9/manifests/l7/daemonset/envoy-config.yaml -O
+    curl ${DOCS_LOCATION}/v3.10/manifests/l7/daemonset/envoy-config.yaml -O
     ```
 2. Create the Envoy config in `calico-system` namespace
     ```bash
